@@ -17,7 +17,7 @@
                 <h3 class="float-md-left mb-0">Classia</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-right">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="/campgrounds">Books</a>
+                    <a class="nav-link" href="/books">Books</a>
                     <% if(!currentUser) { %>
                     <a class="nav-link" href="/login">Login</a>
                     <a class="nav-link" href="/register">Register</a>
@@ -33,7 +33,7 @@
         </main>
 
         <div class="container-fluid">
-          <form action="/campgrounds" method="GET" class="d-flex">
+          <form action="/books" method="GET" class="d-flex">
               <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
           </form>        

@@ -2,26 +2,26 @@
 
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-        <form action="/campgrounds" method="GET" class="d-flex">
+        <form action="/books" method="GET" class="d-flex">
             <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>        
     </div>
 </nav>
-    <% for (let campground of campgrounds){ %>
+    <% for (let book of books){ %>
         <div class="card mb-3">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="img-fluid" alt="" src="<%=campground.images[0].url%>" crossorigin>
+                    <img class="img-fluid" alt="" src="<%=book.images[0].url%>" crossorigin>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"><%= campground.title %></h5>
-                        <p class="card-text"><%= campground.description %></p>
+                        <h5 class="card-title"><%= book.title %></h5>
+                        <p class="card-text"><%= book.description %></p>
                         <p class="card-text">
-                            <small class="text-muted"><%= campground.location %></small>
+                            <small class="text-muted"><%= book.location %></small>
                         </p>
-                        <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                        <a class="btn btn-primary" href="/books/<%= book._id %>">View <%= book.title %></a>
                     </div>
                 </div>
             </div>

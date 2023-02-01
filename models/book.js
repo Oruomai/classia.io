@@ -11,7 +11,7 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
-const CampgroundSchema = new Schema({
+const BookSchema = new Schema({
     title: String,
     images: [ImageSchema],
     price: Number,
@@ -30,7 +30,7 @@ const CampgroundSchema = new Schema({
     avgRating: Number
 });
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
+BookSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({
             _id: {
@@ -40,7 +40,7 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
     }
 })
 
-CampgroundSchema.methods.calculateAvgRating = function() {
+BookSchema.methods.calculateAvgRating = function() {
 	let ratingsTotal = 0;
 	if(this.reviews.length) {
 		this.reviews.forEach(review => {
@@ -55,4 +55,4 @@ CampgroundSchema.methods.calculateAvgRating = function() {
 	return floorRating;
 }
 
-module.exports = mongoose.model('Campground', CampgroundSchema);
+module.exports = mongoose.model('Book', BookSchema);
