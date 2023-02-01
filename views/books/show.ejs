@@ -31,15 +31,14 @@
                 <p class="card-text"><%= book.description%></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted"><%= book.location%></li>
-                <li class="list-group-item">$<%= book.price%>/night</li>
+                <li class="list-group-item text-muted"><%= book.author%></li>
             </ul>
 
             <div class="card-body">
                 <%  if(currentUser)  {%>
                 <a class="card-link btn btn-info" href="/books/<%=book._id%>/edit">Edit</a>
                 <% } %>
-                <%  if(currentUser && book.author.equals(currentUser._id))  {%>
+                <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
                 <form class="d-inline" action="/books/<%=book._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
@@ -82,13 +81,13 @@
         <% for(let review of book.reviews) { %>
             <div class="card mb-3 ">
                 <div class="card-body">
-                    <h5 class="card-title"> <%= review.author.username%></h5>
+                    <h5 class="card-title"> <%= review.owner.username%></h5>
                     <p class="starability-result" data-rating="<%=review.rating%>">
                         Rated: <%= review.rating %> stars
                     </p>
-                    <!-- <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6> -->
+                    <!-- <h6 class="card-subtitle mb-2 text-muted">By <%= review.owner.username%></h6> -->
                     <p class="card-text">Review: <%= review.body %></p>
-                    <%  if( currentUser && review.author.equals(currentUser._id))  {%>
+                    <%  if( currentUser && review.owner.equals(currentUser._id))  {%>
                     <form action="/books/<%=book._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </form>

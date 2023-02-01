@@ -26,7 +26,7 @@ module.exports.renderNewForm = (req, res) => {
 module.exports.createBook = async (req, res, next) => {
     const book = new Book(req.body.book);
     book.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    book.author = req.user._id;
+    book.owner = req.user._id;
     await book.save();
     req.flash('success', 'Successfully made a new book!');
     res.redirect(`/books/${book._id}`)
@@ -39,9 +39,9 @@ module.exports.showBook = async (req, res,) => {
             sort: { '_id': -1 } 
         }, 
         populate: {
-            path: 'author'
+            path: 'owner'
         }
-    }).populate('author');
+    }).populate('owner');
     if (!book) {
         req.flash('error', 'Cannot find that book!');
         return res.redirect('/books');

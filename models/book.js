@@ -14,10 +14,9 @@ ImageSchema.virtual('thumbnail').get(function () {
 const BookSchema = new Schema({
     title: String,
     images: [ImageSchema],
-    price: Number,
     description: String,
-    location: String,
-    author: {
+    author: String,
+    owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
