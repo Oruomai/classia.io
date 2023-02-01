@@ -45,7 +45,7 @@ app.use(mongoSanitize({
     replaceWith: '_'
 }))
 
-const secret = process.env.SECRET || 'chocolate';
+const secret = process.env.SECRET;
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
@@ -145,6 +145,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(3000, ()=> {
-    console.log('SERVING ON PORT 3000')
+const port = process.env.PORT || 3000
+app.listen(port, ()=> {
+    console.log(`SERVING ON PORT ${port}`)
 });
