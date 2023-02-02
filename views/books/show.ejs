@@ -2,11 +2,13 @@
 <link rel="stylesheet" href="/stylesheets/stars.css">
 <script src="./javascripts/custom.js"></script>
 
-<div class="card mb-3" style="max-width: 1200px;">
+<div class="card mb-3 col-11" style="max-width: 1200px;">
     <div class="row g-0">
+      <% book.images.forEach((img, i) => {  %>
       <div class="col-md-4">
-        <img src="https://images.unsplash.com/photo-1572281158640-30040dd70cbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" class="img-fluid rounded-start" alt="" crossorigin>
+        <img src="<%= img.url %>" class="img-fluid rounded-start" alt="" crossorigin>
       </div>
+      <% }) %>
       <div class="col-md-8">
         <div class="card-body">
             <h5 class="card-title text-center"><%= book.title%></h5>
@@ -33,54 +35,7 @@
       </div>
     </div>
 </div>
-
-<div class="row d-flex justify-content-center">
-    <div class="col-10">
-        <div id="bookCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <% book.images.forEach((img, i) => {  %>
-                <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-                    <img src="<%= img.url %>" class="d-block w-100" alt="" crossorigin>
-                </div>
-                <% }) %>
-            </div>
-
-            <% if(book.images.length > 1) {%>
-            <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
-            <% } %>
-        </div>
-
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title text-center"><%= book.title%></h5>
-                <p class="card-text"><%= book.description%></p>
-            </div>
-            <ul class="list-group list-group-flush text-center">
-                <li class="list-group-item text-muted">Author: <%= book.author%></li>
-            </ul>
-
-            <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
-            <div class="card-body text-center">
-                <a class="card-link btn btn-info" href="/books/<%=book._id%>/edit">Edit</a>
-                <form class="d-inline" action="/books/<%=book._id%>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-            <% } %>
-
-            <div class="card-footer text-muted text-center">
-                <h4> Overall Score: <%= book.avgRating %> </h4>
-            </div>
-        </div>
-    </div>
-    <div class="col-10">
+    <div class="col-11">
         <% if(currentUser){ %>
         <div class="card mb-3">
             <div class="card-body">
