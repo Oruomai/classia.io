@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/stars.css">
 <script src="./javascripts/custom.js"></script>
 
-<div class="card mb-3" style="max-width: 1500px;">
+<div class="card mb-3" style="position: relative; max-width: 1500px;">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="https://images.unsplash.com/photo-1572281158640-30040dd70cbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" class="img-fluid rounded-start" alt="" crossorigin>
@@ -12,9 +12,9 @@
             <h5 class="card-title text-center"><%= book.title%></h5>
             <p class="card-text"><%= book.description%></p>
         </div>
-        <div>
+        <div id="bottom" class="card" style="position: absolute; bottom: 0; width: 66.75%;">
             <ul class="list-group list-group-flush text-center">
-                <li class="list-group-item text-muted">Author: <%= book.author%></li>
+              <li class="list-group-item text-muted">Author: <%= book.author%></li>
             </ul>
 
             <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
