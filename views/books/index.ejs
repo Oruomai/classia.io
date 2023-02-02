@@ -16,12 +16,14 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"><%= book.title %></h5>
+                        <h5 class="card-title text-center"><%=book.title%></h5>
                         <p class="card-text"><%= book.description %></p>
-                        <p class="card-text">
+                        <p class="card-text text-center">
                             <small class="text-muted"><%= book.author %></small>
                         </p>
-                        <a class="btn btn-primary" href="/books/<%= book._id %>">View <%= book.title %></a>
+                        <div class="text-center">
+                            <a class="btn btn-primary" href="/books/<%= book._id %>">View</a>
+                        </div>
                     </div>
                 </div>
             </div>

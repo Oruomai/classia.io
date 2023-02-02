@@ -7,7 +7,7 @@ module.exports.index = async (req, res) => {
     if(req.query.search) {
         var options = {
             threshold: 0.2,
-            keys: ['title']
+            keys: ['title', 'author']
         }
         var fuse = new Fuse(books, options);
         books = fuse.search(req.query.search);

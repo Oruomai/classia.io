@@ -27,26 +27,24 @@
 
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title"><%= book.title%></h5>
+                <h5 class="card-title text-center"><%= book.title%></h5>
                 <p class="card-text"><%= book.description%></p>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted"><%= book.author%></li>
+            <ul class="list-group list-group-flush text-center">
+                <li class="list-group-item text-muted">Author: <%= book.author%></li>
             </ul>
 
-            <div class="card-body">
-                <%  if(currentUser)  {%>
+            <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
+            <div class="card-body text-center">
                 <a class="card-link btn btn-info" href="/books/<%=book._id%>/edit">Edit</a>
-                <% } %>
-                <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
                 <form class="d-inline" action="/books/<%=book._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
-                <% } %>
             </div>
+            <% } %>
 
-            <div class="card-footer text-muted">
-                <h2> <%= book.avgRating %> </h2>
+            <div class="card-footer text-muted text-center">
+                <h4> Overall Score: <%= book.avgRating %> </h4>
             </div>
         </div>
     </div>
