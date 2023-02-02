@@ -16,7 +16,13 @@
         </div>
         <div id="bottom" class="card">
             <ul class="list-group list-group-flush text-center">
-              <li class="list-group-item text-muted">Author: <%= book.author%></li>
+                <li class="list-group-item text-muted">Author: <a href="https://en.wikipedia.org/wiki/<%= book.author%>"><%= book.author%></a></li>
+            </ul>
+            <ul class="list-group list-group-flush text-center">
+                <li class="list-group-item text-muted">Originally Published: <%= book.published%></li>
+            </ul>
+            <ul class="list-group list-group-flush text-center">
+                <li class="list-group-item text-muted">Original Language: <%= book.language%></li>
             </ul>
 
             <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
@@ -29,7 +35,7 @@
             <% } %>
 
             <div class="card-footer text-muted text-center">
-                <h4> Overall Score: <%= book.avgRating %> </h4>
+                <h4> Overall Rating: <%= book.avgRating %> </h4>
             </div>
         </div>
       </div>

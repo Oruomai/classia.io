@@ -22,6 +22,24 @@
             </div>
 
             <div class="mb-3">
+                <label class="form-label" for="published">Published</label>
+                <input class="form-control" type="text" id="published" name="book[published]"
+                    value="<%=book.published %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="language">Language</label>
+                <input class="form-control" type="text" id="language" name="book[language]"
+                    value="<%=book.language %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
                 <textarea class="form-control" type="text" id="description" name="book[description]"
                     required><%= book.description%></textarea>

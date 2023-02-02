@@ -27,6 +27,8 @@ module.exports.bookSchema = Joi.object({
     book: Joi.object({
         title: Joi.string().required().escapeHTML(),
         author: Joi.string().required().escapeHTML(),
+        published: Joi.string().required().escapeHTML(),
+        language: Joi.string().required().escapeHTML(),
         description: Joi.string().required().escapeHTML()
     }).required(),
     deleteImages: Joi.array()
