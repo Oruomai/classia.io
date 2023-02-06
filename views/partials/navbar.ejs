@@ -9,7 +9,9 @@
           <div class="navbar-nav">
               <a class="nav-link" href="/">Home</a>
               <a class="nav-link" href="/books">Books</a>
+              <% if(currentUser && currentUser.admin){ %>
               <a class="nav-link" href="/books/new">New Book</a>
+              <% } %>
           </div>
           <div class="navbar-nav ms-auto">
               <% if(!currentUser) {%>

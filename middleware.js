@@ -12,6 +12,14 @@ module.exports.isLoggedIn = (req, res, next) => {
     next();
 }
 
+module.exports.isAdmin = (req, res, next) => {
+    if (!req.user || !req.user.admin) {
+        req.flash('error', 'You are not authorized to access this page!');
+        return res.redirect('/books');
+    }
+    next();
+}
+
 module.exports.validateBook = (req, res, next) => {
     const { error } = bookSchema.validate(req.body);
     if (error) {
