@@ -25,7 +25,7 @@
                 <li class="list-group-item text-muted">Original Language: <%= book.language%></li>
             </ul>
 
-            <%  if(currentUser && book.owner.equals(currentUser._id))  {%>
+            <% if(currentUser && currentUser.admin){ %>
             <div class="card-body text-center">
                 <a class="card-link btn btn-info" href="/books/<%=book._id%>/edit">Edit</a>
                 <form class="d-inline" action="/books/<%=book._id%>?_method=DELETE" method="POST">
