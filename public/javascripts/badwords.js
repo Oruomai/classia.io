@@ -14,7 +14,6 @@ const badWords = [
     "sex",
     "cock",
     "dick",
-    "ass",
     "nigga",
     "pussy",
     "penis",
