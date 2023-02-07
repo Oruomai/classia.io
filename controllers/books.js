@@ -56,6 +56,31 @@ module.exports.renderRanking = async (req, res) => {
     res.render('books/ranking', { books, totalPages, currentPage });
 }
 
+module.exports.renderAward = async (req, res) => {
+    let booksPerPage = 10;
+    let currentPage = parseInt(req.query.page) || 1;
+    books = await Book.find({}).sort({novelAward: -1, title: 1});
+    let totalBooks = books.length;
+  
+    if (req.query.search) {
+      var options = {
+        threshold: 0.2,
+        keys: ['title', 'author']
+      }
+      var fuse = new Fuse(books, options);
+      books = fuse.search(req.query.search);
+      books = books.map(result => result.item);
+      totalBooks = books.length;
+    }
+  
+    let totalPages = Math.ceil(totalBooks / booksPerPage);
+    currentPage = currentPage > totalPages ? totalPages : currentPage;
+  
+    books = books.slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage);
+  
+    res.render('books/awards', { books, totalPages, currentPage });
+}
+
 module.exports.createBook = async (req, res, next) => {
     const book = new Book(req.body.book);
     book.images = req.files.map(f => ({ url: f.path, filename: f.filename }));

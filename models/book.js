@@ -28,7 +28,11 @@ const BookSchema = new Schema({
             ref: 'Review'
         }
     ],
-    avgRating: Number
+    avgRating: Number,
+    novelAward: {
+        type: Boolean, 
+        default: false
+    }
 });
 
 BookSchema.post('findOneAndDelete', async function (doc) {

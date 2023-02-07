@@ -1,0 +1,49 @@
+<% layout('layouts/boilerplate') %>
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <form action="/books" method="GET" class="d-flex">
+            <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>        
+    </div>
+</nav>
+<% let counter = 0; %>
+<% for (let book of books){ %>
+    <% if (counter === 2) { break; } %>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-fluid" alt="" src="<%=book.images[0].url%>" crossorigin>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><%=book.title%></h5>
+                    <p class="card-text"><%= book.description %></p>
+                    <p class="card-text text-center">
+                        <small class="text-muted"><%= book.author %></small>
+                    </p>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="/books/<%= book._id %>">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% counter++; %>
+<% } %>
+<nav aria-label="Page navigation">
+    <ul class="pagination d-flex justify-content-center">
+      <li class="page-item <%= currentPage == 1 ? 'disabled' : '' %>">
+        <a class="page-link" href="?page=<%= currentPage - 1 %>">Previous</a>
+      </li>
+      <% for (var i = 1; i <= totalPages; i++) { %>
+        <li class="page-item <%= i == currentPage ? 'active' : '' %>">
+          <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+        </li>
+      <% } %>
+      <li class="page-item <%= currentPage == totalPages ? 'disabled' : '' %>">
+        <a class="page-link" href="?page=<%= currentPage + 1 %>">Next</a>
+      </li>
+    </ul>
+</nav>

@@ -1,0 +1,7 @@
+.gold-text {
+    color: #FFD700;
+}
+
+.gold-text:hover {
+    color: yellow;
+}
