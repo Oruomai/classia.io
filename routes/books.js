@@ -15,6 +15,8 @@ router.route('/')
 
 router.get('/new', isLoggedIn, isAdmin, books.renderNewForm)
 
+router.get('/ranking', catchAsync(books.renderRanking))
+
 router.route('/:id')
     .get(catchAsync(books.showBook))
     .put(isLoggedIn, isAdmin, upload.array('image'), validateBook, catchAsync(books.updateBook))

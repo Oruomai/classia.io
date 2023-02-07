@@ -3,9 +3,9 @@ const Fuse = require('fuse.js')
 const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
-    let booksPerPage = 2;
+    let booksPerPage = 10;
     let currentPage = parseInt(req.query.page) || 1;
-    let books = await Book.find({});
+    books = await Book.find({}).sort({title: 1});
     let totalBooks = books.length;
   
     if (req.query.search) {
@@ -29,6 +29,31 @@ module.exports.index = async (req, res) => {
    
 module.exports.renderNewForm = (req, res) => {
     res.render('books/new');
+}
+
+module.exports.renderRanking = async (req, res) => {
+    let booksPerPage = 10;
+    let currentPage = parseInt(req.query.page) || 1;
+    books = await Book.find({}).sort({avgRating: -1});
+    let totalBooks = books.length;
+  
+    if (req.query.search) {
+      var options = {
+        threshold: 0.2,
+        keys: ['title', 'author']
+      }
+      var fuse = new Fuse(books, options);
+      books = fuse.search(req.query.search);
+      books = books.map(result => result.item);
+      totalBooks = books.length;
+    }
+  
+    let totalPages = Math.ceil(totalBooks / booksPerPage);
+    currentPage = currentPage > totalPages ? totalPages : currentPage;
+  
+    books = books.slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage);
+  
+    res.render('books/ranking', { books, totalPages, currentPage });
 }
 
 module.exports.createBook = async (req, res, next) => {
