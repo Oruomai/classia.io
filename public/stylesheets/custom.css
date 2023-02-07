@@ -5,3 +5,8 @@
 .gold-text:hover {
     color: yellow;
 }
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
