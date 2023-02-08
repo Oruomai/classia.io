@@ -29,10 +29,18 @@ const BookSchema = new Schema({
         }
     ],
     avgRating: Number,
-    novelAward: {
+    greatestBook: {
         type: Boolean, 
         default: false
-    }
+    },
+    nobelPrize: {
+        type: Boolean, 
+        default: false
+    },
+    pulitzerPrize: {
+        type: Boolean, 
+        default: false
+    },
 });
 
 BookSchema.post('findOneAndDelete', async function (doc) {
