@@ -29,10 +29,7 @@ const BookSchema = new Schema({
         }
     ],
     avgRating: Number,
-    greatestBook: {
-        type: Boolean, 
-        default: false
-    },
+    greatestBook: Number,
     nobelPrize: {
         type: Boolean, 
         default: false
