@@ -31,15 +31,15 @@ const BookSchema = new Schema({
     avgRating: Number,
     greatestBook: {
         type: Number, 
-        default: 0      
+        default: 10000
     },
     nobelPrize: {
-        type: Boolean, 
-        default: false
+        type: Number, 
+        default: 0
     },
     pulitzerPrize: {
-        type: Boolean, 
-        default: false
+        type: Number, 
+        default: 0
     },
 });
 
