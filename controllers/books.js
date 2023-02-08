@@ -56,7 +56,7 @@ module.exports.renderRanking = async (req, res) => {
     res.render('books/ranking', { books, totalPages, currentPage });
 }
 
-module.exports.renderAward = async (req, res) => {
+module.exports.renderGreatestBooks = async (req, res) => {
     let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({greatestBook: 1});
@@ -78,7 +78,7 @@ module.exports.renderAward = async (req, res) => {
   
     books = books.slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage);
   
-    res.render('books/awards', { books, totalPages, currentPage });
+    res.render('books/greatestbooks', { books, totalPages, currentPage });
 }
 
 module.exports.createBook = async (req, res, next) => {
