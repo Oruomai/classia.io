@@ -32,7 +32,7 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.renderRanking = async (req, res) => {
-    let booksPerPage = 10;
+    let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({avgRating: -1});
     let totalBooks = books.length;
