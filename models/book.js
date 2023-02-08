@@ -16,7 +16,7 @@ const BookSchema = new Schema({
     images: [ImageSchema],
     description: String,
     author: String,
-    published: Number,
+    published: String,
     language: String,
     owner: {
         type: Schema.Types.ObjectId,
