@@ -3,7 +3,7 @@ const Fuse = require('fuse.js')
 const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
-    let booksPerPage = 10;
+    let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({title: 1});
     let totalBooks = books.length;
@@ -57,7 +57,7 @@ module.exports.renderRanking = async (req, res) => {
 }
 
 module.exports.renderAward = async (req, res) => {
-    let booksPerPage = 10;
+    let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({greatestBook: 1});
     let totalBooks = books.length;
