@@ -8,6 +8,7 @@
         </form>        
     </div>
 </nav>
+<% let rank = 1; %>
 <% let counter = 0; %>
 <% for (let book of books){ %>
     <% if (counter === 100) { break; } %>
@@ -18,7 +19,7 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><%=book.title%></h5>
+                    <h5 class="card-title text-center"><%= rank %>. <%=book.title%></h5>
                     <p class="card-text"><%= book.description %></p>
                     <p class="card-text text-center">
                         <small class="text-muted"><%= book.author %></small>
