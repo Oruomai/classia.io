@@ -81,6 +81,57 @@ module.exports.renderGreatestBooks = async (req, res) => {
     res.render('books/greatestbooks', { books, totalPages, currentPage });
 }
 
+
+module.exports.renderNobelPrize = async (req, res) => {
+    let booksPerPage = 5;
+    let currentPage = parseInt(req.query.page) || 1;
+    books = await Book.find({}).sort({nobelPrize: -1});
+    let totalBooks = books.length;
+  
+    if (req.query.search) {
+      var options = {
+        threshold: 0.2,
+        keys: ['title', 'author']
+      }
+      var fuse = new Fuse(books, options);
+      books = fuse.search(req.query.search);
+      books = books.map(result => result.item);
+      totalBooks = books.length;
+    }
+  
+    let totalPages = Math.ceil(totalBooks / booksPerPage);
+    currentPage = currentPage > totalPages ? totalPages : currentPage;
+  
+    books = books.slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage);
+  
+    res.render('books/nobelprize', { books, totalPages, currentPage });
+}
+
+module.exports.renderPulitzerPrize = async (req, res) => {
+    let booksPerPage = 5;
+    let currentPage = parseInt(req.query.page) || 1;
+    books = await Book.find({}).sort({pulitzerPrize: -1});
+    let totalBooks = books.length;
+  
+    if (req.query.search) {
+      var options = {
+        threshold: 0.2,
+        keys: ['title', 'author']
+      }
+      var fuse = new Fuse(books, options);
+      books = fuse.search(req.query.search);
+      books = books.map(result => result.item);
+      totalBooks = books.length;
+    }
+  
+    let totalPages = Math.ceil(totalBooks / booksPerPage);
+    currentPage = currentPage > totalPages ? totalPages : currentPage;
+  
+    books = books.slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage);
+  
+    res.render('books/pulitzerprize', { books, totalPages, currentPage });
+}
+
 module.exports.createBook = async (req, res, next) => {
     const book = new Book(req.body.book);
     book.images = req.files.map(f => ({ url: f.path, filename: f.filename }));

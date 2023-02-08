@@ -19,6 +19,10 @@ router.get('/ranking', catchAsync(books.renderRanking))
 
 router.get('/greatestbooks', catchAsync(books.renderGreatestBooks))
 
+router.get('/nobelprize', catchAsync(books.renderNobelPrize))
+
+router.get('/pulitzerprize', catchAsync(books.renderPulitzerPrize))
+
 router.route('/:id')
     .get(catchAsync(books.showBook))
     .put(isLoggedIn, isAdmin, upload.array('image'), validateBook, catchAsync(books.updateBook))
