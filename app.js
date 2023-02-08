@@ -23,7 +23,7 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoStore = require('connect-mongo');
 
-const dbUrl = process.env.DB_URL;
+const dbUrl = "mongodb+srv://hrmoon99:CorQjfFp99*@classia.kh7rpth.mongodb.net/classia?retryWrites=true&w=majority"
 
 mongoose.connect(dbUrl)
 const db = mongoose.connection;
