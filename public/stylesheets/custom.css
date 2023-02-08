@@ -7,6 +7,21 @@
 }
 
 .logo img {
-    height: 50px;
+    height: 50px !important;
     width: auto;
 }
+
+/*Scroll-Bar - Start*/
+body::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #1d1d1d;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #8892b0;
+    border-radius: 100px;
+}
+/*Scroll-Bar - End*/
