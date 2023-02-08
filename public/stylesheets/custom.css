@@ -17,11 +17,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background-color: #ffffff;
+    background-color: #f1f1f1;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #8892b0;
+    background-color: #c1c1c1;
     border-radius: 100px;
 }
 /*Scroll-Bar - End*/
