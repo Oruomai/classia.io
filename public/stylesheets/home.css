@@ -47,7 +47,7 @@ body {
 
 @media (max-width: 767px) {
     .logo img{
-        height: 100px;
+        height: 100px !important;
         width: auto;
     }
 }
