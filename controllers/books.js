@@ -60,6 +60,7 @@ module.exports.renderGreatestBooks = async (req, res) => {
     let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({greatestBook: 1});
+    books = books.slice(0, 100);
     let totalBooks = books.length;
   
     if (req.query.search) {
