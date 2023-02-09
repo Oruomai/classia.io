@@ -10,6 +10,27 @@
     height: 50px !important;
     width: auto;
 }
+/*
+@media (max-width: 767px) {
+    .logo2 img {
+        display: flex !important;
+        justify-content: center !important;
+    }
+}
+*/
+.logo2 img {
+    height: 300px;
+    width: auto;
+}
+
+.clearfix{
+    max-width: 40vw;
+    
+}
+
+.card-body{
+    background-color: #f8f4ec;
+}
 
 /*Scroll-Bar - Start*/
 body::-webkit-scrollbar {
