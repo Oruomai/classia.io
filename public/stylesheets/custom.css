@@ -10,25 +10,27 @@
     height: 50px !important;
     width: auto;
 }
-/*
+
 @media (max-width: 767px) {
     .logo2 img {
-        display: flex !important;
-        justify-content: center !important;
+        display: none !important;
     }
 }
-*/
 .logo2 img {
     height: 300px;
     width: auto;
 }
 
-.clearfix{
+@media (max-width: 767px) {
+    .clearfix {
+        max-width: 100vw !important;
+    }
+}
+.clearfix {
     max-width: 40vw;
-    
 }
 
-.card-body{
+.quote-color {
     background-color: #f8f4ec;
 }
 
