@@ -8,6 +8,7 @@
     }
     .pagination li.page-item.active,
     .pagination li.page-item:first-child,
+    .pagination li.page-item:nth-last-child(3),
     .pagination li.page-item:nth-last-child(2),
     .pagination li.page-item:last-child {
       display: block;
@@ -16,7 +17,8 @@
     .pagination li.page-item:last-child ~ li.page-item {
       display: block;
     }
-}
+  }
+  
 
 .gold-text {
     color: #FFD700;
