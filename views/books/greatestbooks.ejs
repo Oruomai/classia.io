@@ -1,6 +1,13 @@
+<link rel="stylesheet" href="/stylesheets/custom.css">
 <% layout('layouts/boilerplate') %>
 
-<nav class="navbar navbar-light bg-light">
+<div class="card quote-color">
+    <div class="card-body mt-5 mb-5 ms-5 me-5">
+        The list of the greatest books is sourced from <a href="https://thegreatestbooks.org">thegreatestbooks.org</a>. This website has generated the list by using an algorithm that collates data from 130 of the best book lists from various credible sources. The algorithm takes into consideration the number of times a book appears on these lists and uses that information to generate a final ranking of the greatest books.
+    </div>
+</div>
+
+<nav class="navbar navbar-light bg-light mt-5">
     <div class="container-fluid">
         <form action="/books" method="GET" class="d-flex">
             <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
