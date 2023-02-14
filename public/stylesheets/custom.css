@@ -3,22 +3,28 @@
 }
 
 @media screen and (max-width: 767px) {
-    .pagination li.page-item {
-      display: none;
+    @media screen and (max-width: 767px) {
+        .pagination li.page-item {
+          display: none;
+        }
+        .pagination li.page-item.active,
+        .pagination li.page-item:first-child,
+        .pagination li.page-item:nth-child(2),
+        .pagination li.page-item:nth-last-child(2),
+        .pagination li.page-item:last-child {
+          display: block;
+        }
+        .pagination li.page-item:first-child + li.page-item,
+        .pagination li.page-item:last-child ~ li.page-item,
+        .pagination li.page-item:last-child ~ li.page-item:first-child,
+        .pagination li.page-item:last-child ~ li.page-item:nth-child(2) {
+          display: block;
+        }
+        .pagination li.page-item:last-child ~ li.page-item .ellipsis {
+          display: inline;
+        }
     }
-    .pagination li.page-item.active,
-    .pagination li.page-item:first-child,
-    .pagination li.page-item:nth-last-child(3),
-    .pagination li.page-item:nth-last-child(2),
-    .pagination li.page-item:last-child {
-      display: block;
-    }
-    .pagination li.page-item:first-child + li.page-item,
-    .pagination li.page-item:last-child ~ li.page-item {
-      display: block;
-    }
-  }
-  
+      
 
 .gold-text {
     color: #FFD700;
