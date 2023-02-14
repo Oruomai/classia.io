@@ -42,8 +42,15 @@
         <a class="page-link" href="?page=<%= currentPage - 1 %>"><</a>
       </li>
       <%
-      var start = currentPage - 5;
-      var end = currentPage + 4;
+      var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      var start, end;
+      if (mobile) {
+        start = currentPage - 2;
+        end = currentPage + 2;
+      } else {
+        start = currentPage - 5;
+        end = currentPage + 4;
+      }
       if (start < 1) {
         end = end + (1 - start);
         start = 1;

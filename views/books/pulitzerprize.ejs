@@ -42,7 +42,9 @@
         <a class="page-link" href="?page=<%= currentPage - 1 %>"><</a>
       </li>
       <%
-      if (window.innerWidth <= 767) {
+      var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      var start, end;
+      if (mobile) {
         start = currentPage - 2;
         end = currentPage + 2;
       } else {
