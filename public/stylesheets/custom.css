@@ -25,12 +25,16 @@
     .clearfix {
         max-width: 100vw !important;
     }
+}
+
+@media only screen and (max-width: 767px) {
     .pagenav li {
-        display: inline-block !important;
-        width: calc(100% / 5) !important;
-        text-align: center !important;   
+      display: inline-block;
+      width: calc(100% / 5);
+      text-align: center;
     }
 }
+  
 .clearfix {
     max-width: 40vw;
 }
