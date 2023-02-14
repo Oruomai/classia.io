@@ -36,30 +36,28 @@
         </div>
     </div>
 <% } %>
-<nav aria-label="Page navigation">
-    <ul class="pagination d-flex justify-content-center">
-      <li class="page-item <%= currentPage == 1 ? 'disabled' : '' %>">
-        <a class="page-link" href="?page=<%= currentPage - 1 %>"><</a>
+<nav aria-label="Page navigation" class="navwidth">
+  <ul class="pagination d-flex justify-content-center">
+    <li class="page-item <%= currentPage == 1 ? 'disabled' : '' %>">
+      <a class="page-link" href="?page=<%= currentPage - 1 %>"><</a>
+    </li>
+    <% var start = currentPage - 5;
+    var end = currentPage + 4;
+    if (start < 1) {
+      end = end + (1 - start);
+      start = 1;
+    }
+    if (end > totalPages) {
+      start = Math.max(1, start - (end - totalPages));
+      end = totalPages;
+    }
+    for (var i = start; i <= end; i++) { %>
+      <li class="page-item <%= i == currentPage ? 'active' : '' %>">
+        <a class="page-link" href="?page=<%= i %>"><%= i %></a>
       </li>
-      <%
-      var start = currentPage - 5;
-      var end = currentPage + 4;
-      if (start < 1) {
-        end = end + (1 - start);
-        start = 1;
-      }
-      if (end > totalPages) {
-        start = Math.max(1, start - (end - totalPages));
-        end = totalPages;
-      }
-      for (var i = start; i <= end; i++) {
-      %>
-        <li class="page-item <%= i == currentPage ? 'active' : '' %>">
-          <a class="page-link" href="?page=<%= i %>"><%= i %></a>
-        </li>
-      <% } %>
-      <li class="page-item <%= currentPage == totalPages ? 'disabled' : '' %>">
-        <a class="page-link" href="?page=<%= currentPage + 1 %>">></a>
-      </li>
-    </ul>
+    <% } %>
+    <li class="page-item <%= currentPage == totalPages ? 'disabled' : '' %>">
+      <a class="page-link" href="?page=<%= currentPage + 1 %>">></a>
+    </li>
+  </ul>
 </nav>
