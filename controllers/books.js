@@ -35,6 +35,7 @@ module.exports.renderRanking = async (req, res) => {
     let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({avgRating: -1});
+    books = books.slice(0, 100);
     let totalBooks = books.length;
   
     if (req.query.search) {
@@ -87,6 +88,7 @@ module.exports.renderNobelPrize = async (req, res) => {
     let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({nobelPrize: -1});
+    books = books.slice(0, 1);
     let totalBooks = books.length;
   
     if (req.query.search) {
@@ -112,6 +114,7 @@ module.exports.renderPulitzerPrize = async (req, res) => {
     let booksPerPage = 5;
     let currentPage = parseInt(req.query.page) || 1;
     books = await Book.find({}).sort({pulitzerPrize: -1});
+    books = books.slice(0, 16);
     let totalBooks = books.length;
   
     if (req.query.search) {
