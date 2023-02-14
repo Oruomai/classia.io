@@ -1,4 +1,5 @@
 .navwidth {
+    max-width: fit-content !important;
     overflow-x: hidden !important;
 }
 
