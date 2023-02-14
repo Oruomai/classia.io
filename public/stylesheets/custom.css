@@ -1,35 +1,7 @@
-@media screen and (max-width: 767px) {
-    .pagination li:not(.page-item.active):not(:first-child):not(:last-child) {
-      display: none;
-    }
-    .pagination li.page-item:first-child,
-    .pagination li.page-item:last-child,
-    .pagination li.page-item.active,
-    .pagination li.page-item.active ~ li,
-    .pagination li.page-item.active ~ li:first-child,
-    .pagination li.page-item.active ~ li:nth-child(2),
-    .pagination li.page-item.active ~ li:last-child,
-    .pagination li.page-item.active ~ li:nth-last-child(2) {
-      display: block;
-    }
+.navwidth {
+    overflow-x: hidden !important;
 }
-  
-.pagination li:not(.page-item.active):not(:first-child):not(:last-child) {
-    display: none;
-  }
-  .pagination li.page-item:first-child,
-  .pagination li.page-item:last-child,
-  .pagination li.page-item.active,
-  .pagination li.page-item.active ~ li,
-  .pagination li.page-item.active ~ li:first-child,
-  .pagination li.page-item.active ~ li:nth-child(2),
-  .pagination li.page-item.active ~ li:nth-child(3),
-  .pagination li.page-item.active ~ li:last-child,
-  .pagination li.page-item.active ~ li:nth-last-child(2),
-  .pagination li.page-item.active ~ li:nth-last-child(3) {
-    display: block;
-}
-  
+
 .gold-text {
     color: #FFD700;
 }
