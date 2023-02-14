@@ -1,4 +1,8 @@
 .navwidth {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: 500px !important;
+    text-align: center !important;
     overflow-x: hidden !important;
 }
 
